@@ -2,20 +2,6 @@
     text-align: center;
 }
 
-#marginTopBottomContentAbout {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-h2 {
-    text-align: center;
-}
-
-.tituloSobre {
-    text-align: left;
-    text-indent: 1%;
-}
-
 .conteudoSobre {
     text-align: justify;
     text-justify: inter-word;

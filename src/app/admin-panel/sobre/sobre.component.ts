@@ -14,11 +14,11 @@ export class SobreComponent implements OnInit {
   constructor(private sobreService: SobreService) { }
 
   ngOnInit() {
-    this.getSobre();
+    this. getSobreWithParams();
   }
 
-  getSobre() {
-    this.sobreService.getSobre().subscribe((sobre) => {
+  getSobreWithParams() {
+    this.sobreService. getSobreWithParams().subscribe((sobre) => {
       this.sobre = sobre['data']
     })
   }

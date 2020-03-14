@@ -1,16 +1,22 @@
-<div class="container-fluid" id="marginTopBottomContentAbout">
-  <h2>Sobre Nós</h2>
+<div class="container-fluid marginTopBottomContentContainer">
+  <h2 class="titlePage">Sobre Nós</h2>
   <hr>
-  <div *ngIf="sobre; else notData">
-    <h3 class="tituloSobre">{{sobre['titulo']}}</h3>
-    <img class="imagemSobre" [src]="sobre['imagem']" [alt]="sobre['titulo']">
-    <br>
-    <div class="conteudoSobre">
-      <p>{{sobre['descricao']}}</p>
-      <p>Para mais informações acesse nossa página de <a [routerLink]="['/contato']">Contato</a>.</p>
+  <app-loading [condition]="isLoading"></app-loading>
+  <div *ngIf="sobre">
+    <div *ngFor="let sobre of sobre">
+      <h3>{{sobre.titulo}}</h3>
+      <img class="imagemSobre" [src]="sobre.imagem" [alt]="sobre['titulo']">
+      <br>
+      <div class="conteudoSobre">
+        <p>{{sobre.descricao}}</p>
+      </div>
     </div>
+    <p>Para mais informações acesse nossa página de <a [routerLink]="['/contato']">Contato</a>.</p>
   </div>
-  <ng-template #notData>
-    <p class="notData">Não há texto para ser exibido!</p>
-  </ng-template>
+  <div *ngIf="!isLoading && statusResponse == 200 && !sobre">
+    <app-no-data [message]="messageApi"></app-no-data>
+  </div>
+  <div *ngIf="!isLoading && statusResponse != 200 && !sobre">
+    <app-error></app-error>
+  </div>
 </div>
