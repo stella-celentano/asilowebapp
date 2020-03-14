@@ -1,22 +1,36 @@
-<div class="container-fluid" id="margin">
-  <div class="btn-toolbar justify-content-between">
-    <div>
-      <h2>Sobre</h2>
+<div class="container-fluid marginTopBottomContentContainerAdminPanel">
+  <div>
+    <div class="row">
+      <div class="col-sm-6 positionTitle">
+        <h5>Sobre</h5>
+      </div>
+      <div class="col-sm-6 positionButtons">
+        <button type="button" class="btn btn-outline-success btn-sm">Adicionar</button>
+      </div>
     </div>
-    <div>
-      <button class="btn btn-warning-outline text-yellow">Editar</button>
-    </div>
+    <app-loading [condition]="isLoading"></app-loading>
+    <table *ngIf="!isLoading && statusResponse == 200" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Titulo</th>
+          <th scope="col">Ordenação</th>
+          <th scope="col">Status</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sobre of sobre">
+          <th scope="row">{{sobre['titulo']}}</th>
+          <td>{{sobre['ordenacao']}}</td>
+          <td>{{sobre['status']}}</td>
+          <td>
+            <button class="btn btn-outline-warning btn-sm">Editar</button>
+            <button class="btn btn-outline-danger btn-sm">Apagar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <app-no-data *ngIf="!isLoading && statusResponse == 200 && !sobre"></app-no-data>
+    <app-error *ngIf="!isLoading && statusResponse != 200 && !sobre"></app-error>
   </div>
-  <br>
-  <div *ngIf="sobre; else notData">
-    <h5 class="tituloSobre">{{sobre['titulo']}}</h5>
-    <img class="imagemSobre" [src]="sobre['imagem']" [alt]="sobre['titulo']">
-    <br>
-    <div class="conteudoSobre">
-      <p>{{sobre['descricao']}}</p>
-    </div>
-  </div>
-  <ng-template #notData>
-    <p class="notData">Não há texto para ser exibido!</p>
-  </ng-template>
 </div>

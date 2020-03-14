@@ -1,26 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SobreService } from './../../shared/services/sobre.service';
 import { Sobre } from "./../../shared/models/sobre.model"
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sobre',
   templateUrl: './sobre.component.html',
   styleUrls: ['./sobre.component.css']
 })
-export class SobreComponent implements OnInit {
+export class SobreComponent implements OnInit, OnDestroy {
 
-  public sobre: Sobre
+  sobre: Sobre[]
 
-  constructor(private sobreService: SobreService) { }
+  private httpReq: Subscription
+  isLoading: boolean
+  messageApi: string
+  statusResponse: number
+  hasImage: boolean = false
+
+  constructor(private _service: SobreService) { }
 
   ngOnInit() {
-    this. getSobreWithParams();
+    this.getSobreWithParams()
+  }
+
+  ngOnDestroy() {
+    this.httpReq.unsubscribe()
   }
 
   getSobreWithParams() {
-    this.sobreService. getSobreWithParams().subscribe((sobre) => {
-      this.sobre = sobre['data']
+    this.isLoading = true
+    this.httpReq = this._service.getSobreWithParams().subscribe(response => {
+      this.statusResponse = response.status
+      this.messageApi = response.body['message']
+      this.sobre = response.body['data']
+      this.isLoading = false
+      if (this.sobre['imagem'].length > 0) {
+        this.hasImage = true
+      }
+    }, err => {
+      this.statusResponse = err.status
+      this.messageApi = err.body['message']
+      this.isLoading = false
     })
   }
-
 }

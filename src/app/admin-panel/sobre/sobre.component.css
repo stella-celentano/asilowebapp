@@ -1,11 +1,7 @@
-#inline{
-    display: inline;
+.positionButtons {
+    text-align: end;
 }
 
-#margin{
-    padding: 1% 1%;
-}
-
-#text-right{
-    align-content: center;
+.positionTitle {
+    text-align: start;
 }
