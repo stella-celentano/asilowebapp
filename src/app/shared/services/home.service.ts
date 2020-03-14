@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AsiloWebApi } from 'src/app/app.api';
-import { Noticia } from '../noticias/noticia.model';
+import { Noticia } from '../models/noticia.model';
 
 @Injectable({
   providedIn: 'root'

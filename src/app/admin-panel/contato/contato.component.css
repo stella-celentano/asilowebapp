@@ -1,0 +1,43 @@
+.margin1percent{
+    margin: 1%;
+}
+
+button#editar{
+    float: right;
+}
+
+h3 {
+    float: left;
+    /* border: 2px solid black; */
+}
+
+/*  CONFIGS DA TABELA DE INFORMAÇÕES */
+p{
+    font-weight: bold;
+}
+table {
+    margin: auto;
+    text-align: center;
+    clear: both;
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
+table tr img {
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+
+tr span {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    line-height: 25px;
+    /* border: 2px solid black; */
+}
+
+div.bloquinho {
+    background-color: royalblue;
+}

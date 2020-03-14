@@ -1,0 +1,53 @@
+<div class="container-fluid mt--0">
+
+  <div *ngIf="contato; else notData">
+
+    <div>
+      <h3 class="margin1percent">Contato</h3>
+      <button id="editar" type="button" class="btn btn-outline-warning btn-sm margin1percent">Editar</button>
+    </div>
+
+    <br><br><br>
+
+    <table>
+      <tbody>
+
+        <!-- <div class="bloquinho"> -->
+        <tr><img src="assets/img/contato/endereco.svg" /></tr>
+        <tr>
+          <p>Endereço cadastrado</p>
+        </tr>
+        <tr><span>{{ contato.rua }}, {{ contato.numero }} - {{ contato.bairro }}
+            ({{ contato.complemento }}) - {{ contato.cidade }}, {{ contato.estado }}</span></tr>
+        <!-- </div> -->
+
+        <br>
+
+        <!-- <div class="bloquinho"> -->
+        <tr><img src="assets/img/contato/telefone.svg" /></tr>
+        <tr>
+          <p>Telefone(s) cadastrado(s)</p>
+        </tr>
+        <tr *ngFor="let numero of contato.telefone"><span>{{ numero }}</span></tr>
+        <!-- </div> -->
+
+        <br>
+
+        <!-- <div class="bloquinho"> -->
+        <tr><img src="assets/img/contato/enviar.svg" /></tr>
+        <tr>
+          <p>Email cadastrado</p>
+        </tr>
+        <tr><span>{{ contato['email'] }}</span></tr>
+        <!-- </div> -->
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <ng-template #notData>
+    <p>Não há dados para serem mostrados!</p>
+  </ng-template>
+
+</div>

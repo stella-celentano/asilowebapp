@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
-import { NoticiasService } from "./../services/noticias.service"
-import { Noticia } from "./noticia.model"
+import { NoticiasService } from "../../shared/services/noticias.service"
+import { Noticia } from "../../shared/models/noticia.model"
 import { Subscription } from "rxjs"
 import { Router } from "@angular/router"
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"
@@ -53,6 +53,7 @@ export class NoticiasComponent implements OnInit {
 
     this._service.params = this._service.params.set('order', 'descending')
     this._service.params = this._service.params.set('page', '1')
+    this._service.params = this._service.params.set('limit', '6')
 
     this.getNoticiasWithParams()
 

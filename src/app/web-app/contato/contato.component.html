@@ -3,7 +3,7 @@
     <h2>Contato</h2>
     <hr>
 </div>
-<div class="container">
+<div class="container" *ngIf="contato; else notData">
     <div class="conteudo-flutuante">
         <div class="row">
             <!-- SEÇÃO COM AS INFORMAÇÕES DE CONTATO -->
@@ -13,16 +13,16 @@
                     <tbody>
                         <tr>
                             <td class="td-dir"><img src="assets/img/contato/endereco.svg" /></td>
-                            <td class="td-esq"> <span>{{ Contato.rua }} {{ Contato.numero }} {{ Contato.bairro }}
-                                    {{ Contato.complemento }} {{ Contato.cidade }} {{ Contato.estado }} </span> </td>
+                            <td class="td-esq"> <span>{{ contato.rua }} {{ contato.numero }} {{ contato.bairro }}
+                                    {{ contato.complemento }} {{ contato.cidade }} {{ contato.estado }} </span> </td>
                         </tr>
-                        <tr *ngFor="let numero of Contato.telefone">
+                        <tr *ngFor="let numero of contato.telefone">
                             <td class="td-dir"> <img src="assets/img/contato/telefone.svg" /> </td>
                             <td class="td-esq"> <span>{{ numero }}</span></td>
                         </tr>
                         <tr>
                             <td class="td-dir"> <img src="assets/img/contato/enviar.svg" /> </td>
-                            <td class="td-esq"> <span>{{ Contato.email }}</span></td>
+                            <td class="td-esq"> <span>{{ contato.email }}</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -47,6 +47,10 @@
     </div>
 
 </div>
+
+<ng-template #notData>
+    <p>Erro!</p>
+</ng-template>
 
 <!-- AUTORIA DOS ÍCONES UTILIZADOS -->
 <span id="toHidden">Ícones feitos por <a href="https://www.flaticon.com/br/autores/pixel-perfect"

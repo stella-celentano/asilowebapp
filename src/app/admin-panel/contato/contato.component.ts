@@ -1,6 +1,5 @@
-import { Observable } from 'rxjs';
-import { Contato } from '../../shared/models/contato.model';
 import { ContatoService } from '../../shared/services/contato.service';
+import { Contato } from '../../shared/models/contato.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contato.component.html',
   styleUrls: ['./contato.component.css']
 })
-export class ContatoComponent implements OnInit {
+export class ContatoAdminComponent implements OnInit {
 
   public contato: Contato
 
-  constructor(private contatoService: ContatoService) {
-  }
+  constructor(private contatoService: ContatoService) { }
 
   ngOnInit() {
     this.getContato()
@@ -21,14 +19,10 @@ export class ContatoComponent implements OnInit {
 
   getContato(){
     this.contatoService.getContato().subscribe(response => {
+      //console.log(res)
       this.contato = response['data']
+      //console.log(this.contato)
     })
   }
-
-  // CONFIGURAÇÃO DA API DO GOOGLE MAPS
-  // LOCALIZAÇÃO DO LAR DE IBITINGA
-  lat: number = -21.748462;
-  lng: number = -48.824793;
-  zoom: number = 15;
 
 }

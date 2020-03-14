@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { SobreService } from './../services/sobre.service'
-import { Sobre } from './sobre.model'
+import { SobreService } from '../../shared/services/sobre.service'
+import { Sobre } from '../../shared/models/sobre.model'
 import { Subscription } from "rxjs"
 
 @Component({

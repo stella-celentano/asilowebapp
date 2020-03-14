@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core"
 import { HttpClient, HttpParams, HttpResponse } from "@angular/common/http"
 import { Observable } from "rxjs"
 import { AsiloWebApi } from "../../app.api"
-import { Transparencia } from "./../portal-transparencia/transparencia.model"
+import { Transparencia } from "../models/transparencia.model"
 
 @Injectable()
 export class TransparenciaService {

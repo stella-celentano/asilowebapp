@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Noticia } from "./../noticia.model"
+import { Noticia } from "../../../shared/models/noticia.model"
 
 @Component({
   selector: 'app-noticia-card',

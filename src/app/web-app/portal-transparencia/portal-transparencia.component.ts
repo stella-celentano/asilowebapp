@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms"
-import { Transparencia } from "./transparencia.model"
-import { TransparenciaService } from "./../services/transparencia.service"
+import { Transparencia } from "../../shared/models/transparencia.model"
+import { TransparenciaService } from "../../shared/services/transparencia.service"
 import { Router } from "@angular/router"
 import { Subscription } from "rxjs"
 
@@ -72,7 +72,7 @@ export class PortalTransparenciaComponent implements OnInit {
   ngOnInit() {
     this.r.routeReuseStrategy.shouldReuseRoute = () => false
 
-    this._service.params = this._service.params.set('order', 'descending')
+    this._service.params = this._service.params.set('valueSort', 'descending')
     this._service.params = this._service.params.set('page', '1')
 
     //Init Form

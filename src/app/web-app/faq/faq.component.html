@@ -1,18 +1,28 @@
-<div class="container-fluid" id="marginTopBottomContentContainer">
-  <h2>Perguntas Frequentes</h2>
-</div>
+<div class="container-fluid marginTopBottomContentContainer">
+  <br>
+  <h2>Dúvidas Frequentes</h2>
+  <hr>
 
-<div *ngIf="faqs; else notData">
-  <div *ngFor="let faq of faqs">
-      <div class='question'>
-        <input type='checkbox' id='question-{{faq["_id"]}}'>
-        <label for='question-{{faq["_id"]}}'>{{faq["pergunta"]}}</label>
-          <div class='answer'>
-            {{faq["resposta"]}}
-          </div>
-      </div>
+  <app-loading [condition]="isLoading"></app-loading>
+  <div *ngIf="faqs && statusResponse == 200">
+    <div *ngFor="let faq of faqs | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
+        <div class='question'>
+          <input type='checkbox' id='question-{{faq["_id"]}}'>
+          <label for='question-{{faq["_id"]}}'>{{faq["pergunta"]}}</label>
+            <div class='answer'>
+              {{faq["resposta"]}}
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isLoading && !faqs">
+      <app-no-data [message]="messageApi"></app-no-data>
+    </div>
+    <br />
+    <nav *ngIf="faqs">
+      <ul class="pagination">
+        <pagination-controls (pageChange)="getPage($event)" previousLabel="Anterior" nextLabel="Próximo">
+        </pagination-controls>
+      </ul>
+    </nav>
   </div>
 </div>
-<ng-template #notData>
-<p class="notData">Lamentamos pelo inconveniente, mas ainda não temos perguntas frequentes. Para que possamos ajuda-lo <a [routerLink]="['/contato']" class="nav-link">entre em contato</a> conosco!</p>
-</ng-template>

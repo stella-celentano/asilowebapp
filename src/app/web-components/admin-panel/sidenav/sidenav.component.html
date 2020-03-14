@@ -1,7 +1,7 @@
 <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
   <div class="scrollbar-inner">
     <div class="sidenav-header  align-items-center">
-      <a [routerLink]="['/admin']">
+      <a [routerLink]="['/admin/dashboard']">
         <img src="assets/img/brand/logo.png" class="logo-image-sidenav">
       </a>
     </div>
@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" [routerLink]="['/admin']">
+            <a class="nav-link" [routerLink]="['/admin/dashboard']">
               <i class="fa fa-tv text-primary"></i>
               <span class="nav-link-text">Dashboard</span>
             </a>
@@ -20,20 +20,26 @@
               <span class="nav-link-text">Sobre</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin/faq']">
               <i class="fa fa-question-circle text-yellow"></i>
-              <span class="nav-link-text">FAQ</span>
+              <span class="nav-link-text">Dúvidas Frequentes</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin/noticias']">
               <i class="fa fa-inbox text-info"></i>
               <span class="nav-link-text">Notícias</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin/contato']">
+              <i class="fa fa-id-card text-info"></i>
+              <span class="nav-link-text">Contato</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin/transparencia']">
               <i class="fa fa-archive text-primary"></i>
               <span class="nav-link-text">Portal da Transparência</span>
             </a>

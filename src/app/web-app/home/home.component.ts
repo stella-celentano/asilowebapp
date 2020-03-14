@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HomeService } from '../services/home.service';
-import { Noticia } from '../noticias/noticia.model';
+import { HomeService } from '../../shared/services/home.service';
+import { Noticia } from '../../shared/models/noticia.model';
 import { Subscription } from 'rxjs';
 
 @Component({

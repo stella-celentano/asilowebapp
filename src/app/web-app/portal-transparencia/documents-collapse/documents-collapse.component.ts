@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Transparencia } from "./../transparencia.model"
+import { Transparencia } from "../../../shared/models/transparencia.model"
 
 @Component({
   selector: 'app-documents-collapse',
