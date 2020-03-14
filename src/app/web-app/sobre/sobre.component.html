@@ -5,7 +5,7 @@
   <div *ngIf="sobre">
     <div *ngFor="let sobre of sobre">
       <h3>{{sobre.titulo}}</h3>
-      <img class="imagemSobre" [src]="sobre.imagem" [alt]="sobre['titulo']">
+      <img *ngIf="hasImage" class="imagemSobre" [src]="sobre['imagem']" [alt]="sobre.titulo">
       <br>
       <div class="conteudoSobre">
         <p>{{sobre.descricao}}</p>

@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class SobreComponent implements OnInit, OnDestroy {
 
-  public sobre: Sobre[]
+  sobre: Sobre[]
 
   private httpReq: Subscription
   isLoading: boolean
@@ -36,6 +36,9 @@ export class SobreComponent implements OnInit, OnDestroy {
       this.messageApi = response.body['message']
       this.sobre = response.body['data']
       this.isLoading = false
+      if (this.sobre['imagem'].length > 0) {
+        this.hasImage = true
+      }
     }, err => {
       this.statusResponse = err.status
       this.messageApi = err.body['message']

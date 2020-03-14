@@ -3,6 +3,6 @@ export interface Sobre {
     titulo: string,
     descricao: string,
     imagem: string,
-    ordenacao: Int8Array,
+    ordenacao: string,
     status: boolean
 }
