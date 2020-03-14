@@ -88,8 +88,11 @@
             *ngFor="let document of documents | paginate: { itemsPerPage: limit, currentPage: p, totalItems: total }"
             [document]="document"></app-documents-collapse>
         </div>
-        <div *ngIf="!isLoading && !documents">
-          <app-no-data [message]="messageApi"></app-no-data>
+        <div *ngIf="!isLoading && statusResponse == 200 && !documents">
+          <app-no-data></app-no-data>
+        </div>
+        <div *ngIf="!isLoading && statusResponse != 200 && !documents">
+          <app-error></app-error>
         </div>
       </div>
     </div>

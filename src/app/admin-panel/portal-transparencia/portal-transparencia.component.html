@@ -49,7 +49,8 @@
         </tr>
       </tbody>
     </table>
-    <app-no-data *ngIf="!isLoading && !documents"></app-no-data>
+    <app-no-data *ngIf="!isLoading && statusResponse == 200 && !documents"></app-no-data>
+    <app-error *ngIf="!isLoading && statusResponse != 200 && !documents"></app-error>
     <nav *ngIf="documents">
       <ul class="pagination">
         <pagination-controls class="my-pagination" (pageChange)="getPage($event)" previousLabel="Anterior"
