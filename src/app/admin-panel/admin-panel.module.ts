@@ -23,7 +23,8 @@ import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
 import { AdminPanelRoutes } from "./admin-panel.routing"
 
 //Import Pipes
-import { StatusPipe } from "./pipes/status.pipe"
+import { StatusPipe } from "./pipes/status.pipe";
+import { CreateSobreComponent } from './sobre/create-sobre/create-sobre.component'
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { StatusPipe } from "./pipes/status.pipe"
         SobreComponent,
         NoticiasComponent,
         ContatoAdminComponent, 
-        StatusPipe
+        StatusPipe, CreateSobreComponent
     ],
     exports: [
         HeaderComponent,
