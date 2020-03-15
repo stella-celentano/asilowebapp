@@ -26,7 +26,9 @@ export class SobreComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.httpReq.unsubscribe()
+    if (this.httpReq) {
+      this.httpReq.unsubscribe()
+    }
   }
 
   getSobreWithParams() {
