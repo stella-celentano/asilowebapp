@@ -12,7 +12,11 @@ export class SobreService {
   params = new HttpParams()
 
   getSobreWithParams(): Observable<HttpResponse<Sobre[]>> {
-    return this.http.get<Sobre[]>(`${AsiloWebApi}/quemSomos`, { params: this.params, observe: 'response' })
+    return this.http.get<Sobre[]>(`${AsiloWebApi}/quemSomos`, { params: this.params, observe: 'response' });
   }
+
+  postSobre(sobre: Sobre): Observable<HttpResponse<any>> {
+    return this.http.post(`${AsiloWebApi}/quemSomos`, sobre, { observe: 'response' });
+}
   
 }

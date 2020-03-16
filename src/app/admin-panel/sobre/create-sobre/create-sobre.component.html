@@ -1,3 +1,40 @@
-<p>
-  create-sobre works!
-</p>
+<div class="container-fluid marginTopBottomContentContainerAdminPanel">
+  <h5>Cadastro Sobre</h5>
+  <hr />
+  <app-loading [condition]="isLoading"></app-loading>
+  <form class="needs-validation" novalidate [formGroup]="sobreForm" (ngSubmit)="postSobre(sobreForm.value)">
+    <div class="form-row">
+      <div class="col-sm-12">
+        <label for="titulo">Título</label>
+        <input
+          type="text"
+          class="form-control"
+          id="titulo"
+          placeholder="Título"
+          formControlName="titulo"
+          [ngClass]="{ 'is-invalid': submitted && hasError('titulo') }"
+        />
+        <div class="invalid-feedback">
+          Campo Obrigatório!
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <label for="descricao">Descrição</label>
+        <input
+          type="text"
+          class="form-control"
+          id="descricao"
+          placeholder="Descrição"
+          formControlName="descricao"
+          [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }"
+        />
+        <div class="invalid-feedback">
+          Campo Obrigatório!
+        </div>
+      </div>
+    </div>
+    <div id="btn">
+      <button type="submit" class="btn btn-outline-primary btn-sm">Salvar</button>
+    </div>
+  </form>
+</div>

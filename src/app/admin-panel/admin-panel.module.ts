@@ -18,13 +18,14 @@ import { SobreComponent } from './sobre/sobre.component'
 import { NoticiasComponent } from "./noticias/noticias.component"
 import { ContatoAdminComponent } from './contato/contato.component'
 import { FaqAdmninComponent } from "./faq-admnin/faq-admnin.component"
+import { CreateSobreComponent } from './sobre/create-sobre/create-sobre.component'
 
 //Import Routes
 import { AdminPanelRoutes } from "./admin-panel.routing"
 
 //Import Pipes
 import { StatusPipe } from "./pipes/status.pipe";
-import { CreateSobreComponent } from './sobre/create-sobre/create-sobre.component'
+
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CreateSobreComponent } from './sobre/create-sobre/create-sobre.componen
         SobreComponent,
         NoticiasComponent,
         ContatoAdminComponent, 
-        StatusPipe, CreateSobreComponent
+        StatusPipe, 
+        CreateSobreComponent
     ],
     exports: [
         HeaderComponent,
