@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { SobreService } from 'src/app/shared/services/sobre.service';
@@ -8,7 +8,8 @@ import { Sobre } from 'src/app/shared/models/sobre.model';
 @Component({
   selector: 'app-create-sobre',
   templateUrl: './create-sobre.component.html',
-  styleUrls: ['./create-sobre.component.css']
+  styleUrls: ['./create-sobre.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CreateSobreComponent implements OnInit, OnDestroy {
 
@@ -45,6 +46,15 @@ export class CreateSobreComponent implements OnInit, OnDestroy {
       this.total = response.body['count']
     })
   }
+
+  editorConfig = {
+    editable: true,
+    spellcheck: false,
+    toolbar: [ ['bold', 'italic', 'underline'],['undo', 'redo']],
+    minHeight: '5rem',
+    placeholder: 'Informe a descrição',
+    translate: 'no'
+  };
 
   postSobre(form: Sobre){
     this.submitted = true

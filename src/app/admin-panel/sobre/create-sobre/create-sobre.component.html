@@ -2,10 +2,15 @@
   <h5>Cadastro Sobre</h5>
   <hr />
   <app-loading [condition]="isLoading"></app-loading>
-  <form class="needs-validation" novalidate [formGroup]="sobreForm" (ngSubmit)="postSobre(sobreForm.value)">
+  <form
+    class="needs-validation"
+    novalidate
+    [formGroup]="sobreForm"
+    (ngSubmit)="postSobre(sobreForm.value)"
+  >
     <div class="form-row">
       <div class="col-sm-12">
-        <label for="titulo">Título</label>
+        <label for="titulo">Título</label><span class="text-danger">*</span>
         <input
           type="text"
           class="form-control"
@@ -19,22 +24,22 @@
         </div>
       </div>
       <div class="col-sm-12">
-        <label for="descricao">Descrição</label>
-        <input
-          type="text"
-          class="form-control"
-          id="descricao"
-          placeholder="Descrição"
+        <label for="descricao">Descrição</label
+        ><span class="text-danger">*</span>
+        <app-ngx-editor
+          [config]="editorConfig"
           formControlName="descricao"
           [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }"
-        />
+        ></app-ngx-editor>
         <div class="invalid-feedback">
           Campo Obrigatório!
         </div>
       </div>
     </div>
     <div id="btn">
-      <button type="submit" class="btn btn-outline-primary btn-sm">Salvar</button>
+      <button type="submit" class="btn btn-outline-success btn-sm">
+        Salvar
+      </button>
     </div>
   </form>
 </div>

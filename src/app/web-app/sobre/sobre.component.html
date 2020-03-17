@@ -3,12 +3,12 @@
   <hr>
   <app-loading [condition]="isLoading"></app-loading>
   <div *ngIf="sobre">
-    <div *ngFor="let sobre of sobre">
+    <div *ngFor="let sobre of sobre | paginate: {itemsPerPage: limit, currentPage: p, totalItems: total}">
       <h3>{{sobre.titulo}}</h3>
       <img *ngIf="hasImage" class="imagemSobre" [src]="sobre['imagem']" [alt]="sobre.titulo">
-      <br>
+      
       <div class="conteudoSobre">
-        <p>{{sobre.descricao}}</p>
+        <p innerHTML="{{sobre.descricao}}"></p>
       </div>
     </div>
     <p>Para mais informações acesse nossa página de <a [routerLink]="['/contato']">Contato</a>.</p>
@@ -19,4 +19,11 @@
   <div *ngIf="!isLoading && statusResponse != 200 && !sobre">
     <app-error></app-error>
   </div>
+  <nav *ngIf="sobre">
+    <ul class="pagination">
+      <pagination-controls class="my-pagination" (pageChange)="getPage($event)" previousLabel="Anterior"
+        nextLabel="Próximo">
+      </pagination-controls>
+    </ul>
+  </nav>
 </div>

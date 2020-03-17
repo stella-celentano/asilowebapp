@@ -24,8 +24,10 @@ import { CreateSobreComponent } from './sobre/create-sobre/create-sobre.componen
 import { AdminPanelRoutes } from "./admin-panel.routing"
 
 //Import Pipes
-import { StatusPipe } from "./pipes/status.pipe";
+import { StatusPipe } from "./pipes/status.pipe"
 
+//Import Editor
+import { NgxEditorModule } from 'ngx-editor'
 
 
 @NgModule({
@@ -35,14 +37,13 @@ import { StatusPipe } from "./pipes/status.pipe";
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
-        NgxPaginationModule,
         BsDropdownModule.forRoot(),
         ModalModule.forRoot(),
         TooltipModule.forRoot(),
         BrowserAnimationsModule,
-        NgxPaginationModule,
         OrderModule,
-        RouterModule.forChild(AdminPanelRoutes)
+        RouterModule.forChild(AdminPanelRoutes),
+        NgxEditorModule
     ],
     declarations: [
         HeaderComponent,
